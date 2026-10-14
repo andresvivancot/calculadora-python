@@ -209,7 +209,9 @@ jobs:
           echo '::error::Configura el secreto SONAR_TOKEN antes de ejecutar SonarQube.'
           exit 1
         fi
-        curl --fail --silent --show-error --retry 3 "$SONAR_HOST_URL/api/system/status"
+        curl --fail --silent --show-error --retry 3 \
+          --user "$SONAR_TOKEN:" \
+          "$SONAR_HOST_URL/api/authentication/validate"
     - uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131
       with:
         name: cobertura
