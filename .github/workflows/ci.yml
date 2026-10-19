@@ -209,8 +209,9 @@ jobs:
           echo '::error::Configura el secreto SONAR_TOKEN antes de ejecutar SonarQube.'
           exit 1
         fi
+        SONAR_AUTH=$(printf '%s:' "$SONAR_TOKEN" | base64 -w 0)
         curl --fail --silent --show-error --retry 3 \
-          --user "$SONAR_TOKEN:" \
+          --header "Authorization: Basic $SONAR_AUTH" \
           "$SONAR_HOST_URL/api/authentication/validate"
     - uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131
       with:
