@@ -42,7 +42,6 @@ def estado():
     },
 )
 def calcular(datos: dict):
-def calcular(datos: dict):
     try:
         numeros = datos.get("numeros", [])
         if isinstance(numeros, list) and len(numeros) > 1000:
