@@ -7,7 +7,7 @@ import requests
 
 from herramientas.reporte_pdf import crear_pdf
 
-SERVIDOR = "https://sonarqube.lynvera.ai"
+SERVIDOR = os.getenv("SONAR_HOST_URL", "https://sonarcloud.io").rstrip("/")
 METRICAS = (
     "coverage,line_coverage,branch_coverage,lines_to_cover,uncovered_lines,"
     "bugs,vulnerabilities,code_smells,security_hotspots,ncloc,duplicated_lines_density,"
