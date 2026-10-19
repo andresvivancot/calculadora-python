@@ -11,7 +11,7 @@ concurrency:
   group: calculadora-${{ github.ref }}
   cancel-in-progress: false
 env:
-  SONAR_HOST_URL: https://sonarqube.lynvera.ai
+  SONAR_HOST_URL: https://sonarcloud.io
   PIP_DISABLE_PIP_VERSION_CHECK: '1'
 jobs:
   revision:
