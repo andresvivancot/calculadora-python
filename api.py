@@ -35,7 +35,13 @@ def estado():
     return {"estado": "correcto"}
 
 
-@aplicacion.post("/calcular")
+@aplicacion.post(
+    "/calcular",
+    responses={
+        400: {"description": "La operación o los números enviados no son válidos."}
+    },
+)
+def calcular(datos: dict):
 def calcular(datos: dict):
     try:
         numeros = datos.get("numeros", [])
